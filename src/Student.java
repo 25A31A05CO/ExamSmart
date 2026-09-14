@@ -1,15 +1,18 @@
 public class Student {
 
     String name;
+    String dateOfBirth;
     String rollNumber;
-    String college;
-    String examName;
+    String institutionName;
+    String institutionType;
 
-    public Student(String name, String rollNumber, String college, String examName) {
+    public Student(String name, String dateOfBirth, String rollNumber,
+                   String institutionName, String institutionType) {
+
         this.name = name;
+        this.dateOfBirth = dateOfBirth;
         this.rollNumber = rollNumber;
-        this.college = college;
-        this.examName = examName;
+        this.institutionName = institutionName;
+        this.institutionType = institutionType;
     }
-
 }

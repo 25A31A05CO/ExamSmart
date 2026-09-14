@@ -4,28 +4,101 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Scanner scanner = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
 
-        System.out.print("Enter student name: ");
-        String name = scanner.nextLine();
+        System.out.println("========================================");
+        System.out.println("         WELCOME TO EXAMSMART");
+        System.out.println("========================================");
 
-        System.out.print("Enter roll number: ");
-        String rollNumber = scanner.nextLine();
+        System.out.println("\n1. Institution Login");
+        System.out.println("2. Student Login");
+        System.out.println("3. Exit");
 
-        System.out.print("Enter college name: ");
-        String college = scanner.nextLine();
+        System.out.print("\nEnter your choice: ");
+        int choice = sc.nextInt();
+        sc.nextLine();
 
-        System.out.print("Enter exam name: ");
-        String examName = scanner.nextLine();
+        switch (choice) {
 
-        Student student1 = new Student(name, rollNumber, college, examName);
+            case 1:
 
-        System.out.println("\n--- Student Details ---");
-        System.out.println("Student Name: " + student1.name);
-        System.out.println("Roll Number: " + student1.rollNumber);
-        System.out.println("College: " + student1.college);
-        System.out.println("Exam: " + student1.examName);
+                System.out.println("\n===== INSTITUTION LOGIN =====");
 
-        scanner.close();
+                System.out.print("Enter institution name: ");
+                String institutionName = sc.nextLine();
+
+                System.out.print("Enter institution type (School/College): ");
+                String institutionType = sc.nextLine();
+
+                System.out.print("Enter institution code: ");
+                String institutionCode = sc.nextLine();
+
+                Institution institution = new Institution(
+                        institutionName,
+                        institutionType,
+                        institutionCode
+                );
+
+                System.out.println("\nInstitution created successfully!");
+
+                System.out.print("\nEnter student name: ");
+                String name = sc.nextLine();
+
+                System.out.print("Enter date of birth (DD/MM/YYYY): ");
+                String dateOfBirth = sc.nextLine();
+
+                System.out.print("Enter student roll number: ");
+                String rollNumber = sc.nextLine();
+
+                Student student = new Student(
+                        name,
+                        dateOfBirth,
+                        rollNumber,
+                        institutionName,
+                        institutionType
+                );
+
+                institution.addStudent(student);
+
+                System.out.println("\nStudent added successfully!");
+
+                System.out.println("\n===== STUDENT RECORD =====");
+                System.out.println("Name             : " + student.name);
+                System.out.println("Date of Birth    : " + student.dateOfBirth);
+                System.out.println("Roll Number      : " + student.rollNumber);
+                System.out.println("Institution      : " + institution.institutionName);
+                System.out.println("Institution Type : " + institution.institutionType);
+
+                break;
+
+            case 2:
+
+                System.out.println("\n===== STUDENT LOGIN =====");
+
+                System.out.print("Enter institution name: ");
+                String loginInstitution = sc.nextLine();
+
+                System.out.print("Enter student name: ");
+                String loginName = sc.nextLine();
+
+                System.out.print("Enter date of birth (DD/MM/YYYY): ");
+                String loginDob = sc.nextLine();
+
+                System.out.println("\nStudent login feature will be connected to");
+                System.out.println("the database and hall-ticket system.");
+
+                break;
+
+            case 3:
+
+                System.out.println("\nThank you for using ExamSmart.");
+                break;
+
+            default:
+
+                System.out.println("\nInvalid choice.");
+        }
+
+        sc.close();
     }
 }
