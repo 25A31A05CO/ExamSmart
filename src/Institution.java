@@ -7,6 +7,7 @@ public class Institution {
     String institutionCode;
 
     ArrayList<Student> students;
+    ArrayList<Room> rooms;
 
     public Institution(String institutionName, String institutionType,
                        String institutionCode) {
@@ -16,9 +17,14 @@ public class Institution {
         this.institutionCode = institutionCode;
 
         students = new ArrayList<>();
+        rooms = new ArrayList<>();
     }
 
     public void addStudent(Student student) {
         students.add(student);
+    }
+
+    public void addRoom(Room room) {
+        rooms.add(room);
     }
 }

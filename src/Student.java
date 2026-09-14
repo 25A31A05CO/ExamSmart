@@ -2,17 +2,17 @@ public class Student {
 
     String name;
     String dateOfBirth;
-    String rollNumber;
     String institutionName;
     String institutionType;
+    String hallTicketNumber;
 
-    public Student(String name, String dateOfBirth, String rollNumber,
+    public Student(String name, String dateOfBirth,
                    String institutionName, String institutionType) {
 
         this.name = name;
         this.dateOfBirth = dateOfBirth;
-        this.rollNumber = rollNumber;
         this.institutionName = institutionName;
         this.institutionType = institutionType;
+        this.hallTicketNumber = "";
     }
 }
